@@ -205,6 +205,9 @@
 			this.container.trigger('add');
 			var lowestColumn = $.inArray(Math.min.apply(null, this.columnsHeights), this.columnsHeights);
 			var height = 0;
+			
+			console.log('this.columnsHeights', this.columnsHeights);
+			console.log('lowestColumn', lowestColumn);
 
 			if (this.autoCalculation) {
 				// Get height of elm
@@ -233,7 +236,9 @@
 			// Update item collection.
 			// Item needs to be placed at the end of this.items to keep order of elements
 			var itemsArr = this.items.toArray();
-			itemsArr.push(elm);
+			// itemsArr.push(elm);
+			// itemsArr.push(elm);
+			this.items = this.items.add(elm);
 			this.items = $(itemsArr);
 
 			this.itemsHeights[elm.attr('id')] = height;
